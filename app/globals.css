@@ -1,1 +1,71 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Newsreader", "Georgia", serif;
+  --font-body: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-bg: #f8f7ff;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f3f1ff;
+  --color-border: #e2dff0;
+  --color-border-subtle: #ece9f8;
+  --color-border-glow: #7c6afc30;
+  --color-text: #1a1630;
+  --color-text-secondary: #4a4565;
+  --color-text-muted: #8580a0;
+
+  --color-accent: #6c5ce7;
+  --color-accent-hover: #5a4bd6;
+  --color-accent-muted: #6c5ce71a;
+  --color-blue: #3b82f6;
+  --color-cyan: #0891b2;
+  --color-pink: #db2777;
+  --color-amber: #d97706;
+  --color-emerald: #059669;
+  --color-rose: #e11d48;
+  --color-danger: #dc2626;
+  --color-danger-muted: #dc262612;
+
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-slide-up: slide-up 0.5s ease-out both;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+::selection {
+  background-color: var(--color-accent-muted);
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
